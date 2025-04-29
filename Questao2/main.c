@@ -16,7 +16,7 @@ int main(){
 
     printf("\n######## Cabelereira Leila -- Entrada de Dados ####### \n\n");
     printf("Nome do cliente: ");
-    fgets(nome, sizeof(nome), stdin); // Lê o nome do usuário.
+    fgets(nome, sizeof(nome), stdin);
 
     printf("\n\n******* Valor do Servico ******* \n");
     printf("********************************\n");
