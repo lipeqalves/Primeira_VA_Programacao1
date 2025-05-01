@@ -12,7 +12,11 @@ int main()
     setlocale(LC_ALL, "pt_BR.UTF-8");
 
     int idade, sexo, vaiPraFesta, oQueMaisGosta, novaPesquisa, entrevistado = 1;
-    int gostaDeTudo = 0, mulheresGostamMusica = 0;
+    int gostaDeTudo = 0, mulheresGostamMusica = 0, qtdHomensFogos=0, somaIdadeHomens = 0;
+    int qtdMulher = 0, somaIdadeBrincadeiras = 0, qtdNaoGosta = 0, qtdVaiPraFesta = 0;
+    int qtdGostaMusica = 0, qtdGostaComida = 0, qtdGostaFogos = 0, qtdGostaBrincadeiras = 0;
+    float mediaHomensFogos = 0.0, mediaIdadeBrincadeiras = 0.0;
+    float percMulherFesta = 0.0, percNaoGosta = 0.0;
 
     printf("####################### O Melhor Sao Joao ################################## \n\n");
     do
@@ -27,6 +31,7 @@ int main()
     printf("Vai participar de alguma festa junina este ano (1-sim/0-nao): ");
     scanf("%d", &vaiPraFesta);
     printf("****** **************** ****** \n\n");
+
     // • Quantidade de pessoas que gostam de tudo nas festas juninas;
     if (oQueMaisGosta == 5)
     {
@@ -37,24 +42,93 @@ int main()
     {
         mulheresGostamMusica = mulheresGostamMusica + 1;
     }
-    
-        
+    // • Média da idade dos homens que gostam mais dos fogos;
+
+    if (sexo == 2 && oQueMaisGosta == 4)
+    {
+        qtdHomensFogos = qtdHomensFogos + 1;
+        somaIdadeHomens =  somaIdadeHomens + idade;
+        if (qtdHomensFogos > 0)
+        {
+            mediaHomensFogos = (float)somaIdadeHomens / qtdHomensFogos;
+        }
+    }
+    // • Média da idade das pessoas que preferem as brincadeiras juninas;
+
+    if(oQueMaisGosta == 3){
+        qtdGostaBrincadeiras = qtdGostaBrincadeiras + 1;
+        somaIdadeBrincadeiras = somaIdadeBrincadeiras + idade;
+        if (qtdGostaBrincadeiras > 0){
+            mediaIdadeBrincadeiras = (float)somaIdadeBrincadeiras / qtdGostaBrincadeiras;
+        }
+    }
+
+    // • Percentual de pessoas que não gostam de nada nas festas juninas;
+    if(oQueMaisGosta == 6){
+        qtdNaoGosta = qtdNaoGosta + 1;
+
+    }
+    percNaoGosta = ((float)qtdNaoGosta / entrevistado) * 100;
+
+    // • Percentual de mulheres que vão participar de alguma festa junina;
+    if(sexo == 1){
+        qtdMulher = qtdMulher + 1;
+        if(vaiPraFesta == 1){
+            qtdVaiPraFesta = qtdVaiPraFesta + 1;
+        }
+        percMulherFesta = ((float)qtdVaiPraFesta / qtdMulher) *100;
+    }
+    // • Qual a preferência dos entrevistados: música, comidas típicas, brincadeiras ou fogos?
+
+    switch (oQueMaisGosta)
+    {
+    case 1:
+        qtdGostaMusica = qtdGostaMusica + 1;
+        break;
+    case 2:
+        qtdGostaComida = qtdGostaComida+ 1;
+        break;
+    case 3:
+        qtdGostaBrincadeiras = qtdGostaBrincadeiras + 1;
+        break;
+    case 4:
+        qtdGostaFogos = qtdGostaFogos + 1;
+        break;
+    }
+
     printf("Nova pesquisa?(1-sim/0-nao) ");
     scanf("%d", &novaPesquisa);
     entrevistado++;
     }while (novaPesquisa != 0);
-    printf("\nResultados \n");
+    printf("\n##################################### RESULTADOS ######################################\n\n");
 
     printf("Quantidade de pessoas que gostam de tudo nas festas juninas: %d \n\n", gostaDeTudo);
     printf("Quantidade de mulheres que gostam mais das musicas juninas: %d \n\n", mulheresGostamMusica);
+    printf("Media da idade dos homens que gostam mais dos fogos: %.2f anos\n\n", mediaHomensFogos);
+    printf("Media da idade das pessoas que preferem as brincadeiras juninas: %.2f anos\n\n", mediaIdadeBrincadeiras);
+    printf("Percentual de pessoas que nao gostam de nada nas festas juninas: %.2f%% \n\n", percNaoGosta);
+    printf("Percentual de mulheres que vao participar de alguma festa junina: %.2f%% \n\n", percMulherFesta);
+    printf("Qual a preferencia dos entrevistados: musica, comidas tipicas, brincadeiras ou fogos?\n");
+    if (qtdGostaMusica > qtdGostaComida && qtdGostaMusica > qtdGostaBrincadeiras && qtdGostaMusica > qtdGostaFogos)
+    {
+        printf("A maioria dos entrevistados preferem: MUSICAS \n\n");
+    }
+    else if (qtdGostaComida > qtdGostaMusica && qtdGostaComida > qtdGostaBrincadeiras && qtdGostaComida > qtdGostaFogos)
+    {
+        printf("A maioria dos entrevistados preferem: COMIDAS TIPICAS \n\n");
+    }
+    else if (qtdGostaBrincadeiras > qtdGostaMusica && qtdGostaBrincadeiras > qtdGostaComida && qtdGostaBrincadeiras > qtdGostaFogos)
+    {
+        printf("A maioria dos entrevistados preferem: BRINCADEIRAS \n\n");
+    }
+    else if (qtdGostaFogos > qtdGostaMusica && qtdGostaFogos > qtdGostaComida && qtdGostaFogos > qtdGostaBrincadeiras)
+    {
+        printf("A maioria dos entrevistados preferem: FOGOS \n\n");
+    }else{
+        printf(" Todas as atividades sao bem avaliadas \n\n");
+    }
 
-    /*
-    printf("Dados: \n");
-    printf("Idade %d: \n",idade);
-    printf("Sexo: %d: \n", sexo);
-    printf("O que mais gosta: %d: \n",oQueMaisGosta);
-    printf("Vai pra festa: %d: \n", vaiPraFesta);
-    */
+    printf("\n##################################### ########## ######################################\n\n");
     printf("Pressione Enter para continuar..."); // aguarda o usuário pressionar "Enter", criando a pausa desejada
     while (getchar() != '\n'); // Limpa o buffer de entrada
     getchar();
