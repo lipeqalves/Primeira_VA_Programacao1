@@ -5,7 +5,8 @@
  * Programador: Filipe Quirino Alves
  * Data: 29/04/2025
  * Programa para calcular o valor dos serviços realizados no cliente.
- *Copilador: VScode
+ * Copilador: VScode
+ * https://github.com/lipeqalves/Primeira_VA_Programacao1.git
  ***************************************************************/
 #include <stdio.h>
 #include <locale.h>
