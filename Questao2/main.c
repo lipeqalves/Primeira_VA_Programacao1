@@ -1,5 +1,7 @@
 /***************************************************************
  * Programa: Questão 2 da Primaira VA de Programação I
+ * BSI - UFRPE - 2025.1
+ * Professora Sônia Virginia Alves França
  * Programador: Filipe Quirino Alves
  * Data: 29/04/2025
  * Programa para calcular o valor dos serviços realizados no cliente.

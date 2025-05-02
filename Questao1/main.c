@@ -1,5 +1,7 @@
 /***************************************************************
  * Programa: Questão 1 da Primeira VA de Programação I
+ * BSI - UFRPE - 2025.1
+ * Professora Sônia Virginia Alves França
  * Programador: Filipe Quirino Alves
  * Data Inicio: 29/04/2025
  * Programa para ler os dados da pesquisa e apresentar os resultados
