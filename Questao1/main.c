@@ -3,6 +3,7 @@
  * Programador: Filipe Quirino Alves
  * Data Inicio: 29/04/2025
  * Programa para ler os dados da pesquisa e apresentar os resultados
+ * Copilador: VScode
  ***************************************************************/
 #include <stdio.h>
 #include <locale.h>

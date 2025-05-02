@@ -3,6 +3,7 @@
  * Programador: Filipe Quirino Alves
  * Data: 29/04/2025
  * Programa para calcular o valor dos serviços realizados no cliente.
+ *Copilador: VScode
  ***************************************************************/
 #include <stdio.h>
 #include <locale.h>
